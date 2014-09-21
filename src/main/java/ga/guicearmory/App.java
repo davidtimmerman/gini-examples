@@ -2,7 +2,8 @@ package ga.guicearmory;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import ga.guicearmory.modules.DavidModule;
+import ga.guicearmory.modules.AppModule;
+import ga.guicearmory.modules.HelloGiniModule;
 
 import java.io.IOException;
 
@@ -11,9 +12,9 @@ public class App {
 
     public static void main(String[] args) throws IOException {
 
-        Injector injector = Guice.createInjector(new AppConfig(),new DavidModule());
+        Injector injector = Guice.createInjector(new AppModule(), new HelloGiniModule());
 
-        GuiceMaker guiceMaker = injector.getInstance(GuiceMaker.class);
-        System.out.println(guiceMaker.getMagicDate());
+        HelloGini helloGini = injector.getInstance(HelloGini.class);
+        System.out.println(helloGini.getHelloDate());
     }
 }
