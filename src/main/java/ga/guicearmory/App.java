@@ -15,6 +15,8 @@ public class App {
         Injector injector = Guice.createInjector(new AppModule(), new HelloGiniModule());
 
         HelloGini helloGini = injector.getInstance(HelloGini.class);
+        System.out.println(helloGini.Greet());
         System.out.println(helloGini.getHelloDate());
+        System.out.println(helloGini.getJodaDate());
     }
 }
